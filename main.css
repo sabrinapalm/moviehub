@@ -1,0 +1,180 @@
+body {
+    background-color: #111;
+    background-image: url(./resources/bg.jpg);
+    background-size: contain;
+    color: #EEEEEE;
+    font-family: Josefin Sans, sans-serif;
+}
+#wrapper {
+    padding: 60px;
+}
+h1 {
+    padding: 20px;;
+    margin-left: 300px;
+}
+h2 {
+    font-size: 1.2em;
+}
+.sidenav {
+    height: 100%;
+    width: 290px;
+    position: fixed;
+    z-index: 1;
+    top: 20;
+    left: 50;
+    overflow-x: hidden;
+    padding-top: 70px;
+    text-align: center;
+}
+
+.sidenav a {
+    text-decoration: none;
+    font-size: 1em;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.sidenav img {
+    width: 70px;
+    border-radius: 100px;
+}
+#movies {
+    display: flex;
+    width: 1300px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 300px;
+}
+#movies div {
+    padding: 20px;
+}
+#movies:nth-child(0) {
+    flex: 1; 
+}
+#movies:nth-child(1) {
+    flex: 1; 
+}
+#movies:nth-child(2) {
+    flex: 1; 
+}
+#movies:nth-child(3) {
+    flex: 1; 
+}
+#movies:nth-child(4) {
+    flex: 1; 
+}
+#movies:nth-child(5) {
+    flex: 1; 
+}
+#movies:nth-child(6) {
+    flex: 1; 
+}
+#movies:nth-child(7) {
+    flex: 1; 
+}
+#movies img {
+    width: 280px;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 30px 0 rgba(0, 0, 0, 0.7);
+}
+
+/* Pagination links */
+.pagination {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 1380px;
+}
+.pagination a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+/* Style the active/current link */
+.pagination a.active {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: darkred;}
+
+/* Add movie form */
+#add-movie {
+    background-color: transparent;
+    width: 100%;
+    height: 400px;
+    text-align: left;
+}
+
+.form-style-4{
+    width: 260px;
+    font-size: 16px;
+    background: transparent;
+    padding: 10px;
+}
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button],
+.form-style-4 input[type=text],
+.form-style-4 input[type=email],
+.form-style-4 textarea,
+.form-style-4 label
+{
+    font-family: Josefin Sans, sans-serif;
+    font-size: 1em;
+    color: #fff;
+
+}
+.form-style-4 label {
+    display:block;
+    margin-bottom: 10px;
+}
+.form-style-4 label > span{
+    display: inline-block;
+    float: left;
+    width: 150px;
+}
+.form-style-4 input[type=text],
+.form-style-4 input[type=email] 
+{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 260px;
+    outline: none;
+    padding: 0px 0px 0px 0px;
+}
+.form-style-4 textarea:focus, 
+.form-style-4 input[type=text]:focus,
+.form-style-4 input[type=email]:focus,
+.form-style-4 input[type=email] :focus
+{
+    border-bottom: 1px solid white;
+}
+
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button]{
+    background: transparent;
+    border: 1px solid white;
+    padding: 8px 10px 8px 10px;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 10px;
+    float: right;
+    font-size: 0.9em;
+}
+.form-style-4 input[type=submit]:hover,
+.form-style-4 input[type=button]:hover{
+    background: #000;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+}
