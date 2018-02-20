@@ -4,7 +4,7 @@
 	<meta charset="utf-8" name="viewport" content="Width=device-width, initial-scale=1.0">
 	<title>Sabrina Palm | MovieHub</title>
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<link rel="stylesheet" type="text/css" href="main.css">
@@ -28,61 +28,26 @@
 <body>
 	<div id="wrapper">
       <div class="sidenav">
-        <img src="https://sabrinapalm.github.io/resources/ME.png">
+        <img src="https://i.imgur.com/0OaPAEg.png" id="me">
          <h2>Hello, Sabrina!</h2>
          <div id="add-movie">
-                <form class="form-style-4" action="" method="post">
-                <label for="field1">
-                <input type="text" name="field1" placeholder="Movie title" required="true" />
-                </label>
-                <label for="field2">
-                <input type="text" name="field2" placeholder="Director" required="true" />
-                </label>
-                <label for="field3">
-                <input type="text" name="field3" placeholder="Year" required="true" />
-                </label>
-                <label for="field4">
-                <input type="text" name="field4" placeholder="Image" required="true" />
-                </label>
-                <label>
-                <input type="submit" value="Add movie" />
-                </label>
-                </form>
+           <p></p>
+            <input id="title" type="text" name="title" placeholder="Movie title" required/>
+            <input id="director" type="text" name="director" placeholder="Director" required/>
+            <input id="year" type="text" name="year" placeholder="Year" required/>
+            <input id="image" type="text" name="image" placeholder="Image" required/>
+            <button id="add" type="submit">Add Movie</button>
          </div>
         </div>
-       <div id="movies">
-           <div><img src="resources/starwars1.jpg">
-           <p>Star Wars <em>(1977)</em></p>
-           <p>George Lucas</p></div>
-           <div><img src="resources/starwars2.jpg">
-           <p>Star Wars <em>(1977)</em></p>
-           <p>George Lucas</p></div>
-           <div><img src="resources/starwars3.jpg">
-           <p>Star Wars <em>(1977)</em></p>
-           <p>George Lucas</p></div>
-           <div><img src="resources/starwars4.jpg">
-           <p>Star Wars <em>(1977)</em></p>
-           <p>George Lucas</p></div>
-           <div><img src="resources/starwars5.jpg">
-           <p>Star Wars <em>(1977)</em></p>
-           <p>George Lucas</p></div>
-           <div><img src="resources/starwars6.jpg">
-           <p>Star Wars <em>(1977)</em></p>
-           <p>George Lucas</p></div>
-           <div><img src="resources/starwars7.jpg">
-           <p>Star Wars <em>(1977)</em></p>
-           <p>George Lucas</p></div>
-           <div><img src="resources/starwars8.jpg">
-           <p>Star Wars <em>(1977)</em></p>
-           <p>George Lucas</p></div>
-       </div>
+       <div id="movies"></div>
+       <!--
        <div class="pagination">
           <a href="#">&laquo;</a>
           <a class="active" href="#">1</a>
           <a href="#">2</a>
           <a href="#">3</a>
           <a href="#">&raquo;</a>
-        </div>
+        </div>-->
     </div>
 </body>
 

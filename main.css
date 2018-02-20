@@ -1,9 +1,9 @@
 body {
-    background-color: #111;
-    background-image: url(./resources/bg.jpg);
+    background-color: #61C0BF;
+    /*background-image: url(./resources/bg.jpg);*/
     background-size: contain;
     color: #EEEEEE;
-    font-family: Josefin Sans, sans-serif;
+    font-family: Questrial, sans-serif;
 }
 #wrapper {
     padding: 60px;
@@ -17,7 +17,7 @@ h2 {
 }
 .sidenav {
     height: 100%;
-    width: 290px;
+    width: 260px;
     position: fixed;
     z-index: 1;
     top: 20;
@@ -39,7 +39,9 @@ h2 {
 }
 .sidenav img {
     width: 70px;
-    border-radius: 100px;
+    border-radius: 10px;
+    border: 10px double white;
+    
 }
 #movies {
     display: flex;
@@ -81,6 +83,21 @@ h2 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 30px 0 rgba(0, 0, 0, 0.7);
 }
 
+#title, #director, #year, #image {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    width: 260px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    font-family: Questrial, sans-serif;
+}
+
+input[type=text]::placeholder {
+    color: #FFF;
+    opacity: 0.8;
+}
+
 /* Pagination links */
 .pagination {
     display: inline-block;
@@ -112,65 +129,24 @@ h2 {
     text-align: left;
 }
 
-.form-style-4{
-    width: 260px;
-    font-size: 16px;
-    background: transparent;
-    padding: 10px;
-}
-.form-style-4 input[type=submit],
-.form-style-4 input[type=button],
-.form-style-4 input[type=text],
-.form-style-4 input[type=email],
-.form-style-4 textarea,
-.form-style-4 label
-{
-    font-family: Josefin Sans, sans-serif;
-    font-size: 1em;
-    color: #fff;
-
-}
-.form-style-4 label {
-    display:block;
-    margin-bottom: 10px;
-}
-.form-style-4 label > span{
-    display: inline-block;
-    float: left;
-    width: 150px;
-}
-.form-style-4 input[type=text],
-.form-style-4 input[type=email] 
-{
-    background: transparent;
+#add {
+    background-color: white;
+    color: black;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: Questrial;
+    font-size: 1em;
     width: 260px;
-    outline: none;
-    padding: 0px 0px 0px 0px;
-}
-.form-style-4 textarea:focus, 
-.form-style-4 input[type=text]:focus,
-.form-style-4 input[type=email]:focus,
-.form-style-4 input[type=email] :focus
-{
-    border-bottom: 1px solid white;
 }
 
-.form-style-4 input[type=submit],
-.form-style-4 input[type=button]{
-    background: transparent;
-    border: 1px solid white;
-    padding: 8px 10px 8px 10px;
-    border-radius: 5px;
-    color: #fff;
-    margin-top: 10px;
-    float: right;
-    font-size: 0.9em;
+#add:hover {
+    background-color: white;
+    color: black;
+    transition: 0.3s;
 }
-.form-style-4 input[type=submit]:hover,
-.form-style-4 input[type=button]:hover{
-    background: #000;
+#add:active {
+    transform: translateY(4px);
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
