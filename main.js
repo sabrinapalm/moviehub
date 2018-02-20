@@ -11,6 +11,7 @@ let year = document.getElementById('year');
 let img = document.getElementById('image');
 let add = document.getElementById('add');
 let sort = document.getElementById('sort');
+let remove = document.getElementById('remove');
 
 let movie = document.getElementById('movie');
 
@@ -23,7 +24,9 @@ sort.addEventListener('click', function(event){
     sortMovies();
 })
 
-getMovies();
+remove.addEventListener('click', function(event){
+    removeMovie();
+})
 
 //GET MOVIE DATA
 function getMovies() {
@@ -42,7 +45,7 @@ function getMovies() {
     });
 }
     
-
+getMovies();
 
 //FUNCTION FOR ADDING MOVIEDATA
 
@@ -103,29 +106,31 @@ function createMovie(title, director, year, img) {
 
 //SORT MOVIES BY TITLE 
 
-function sortMovies() {
+function sortMovies(title, director, year, img) {
+    movie.innerHTML = '';
     var movieRef = database.ref().child('movies').orderByChild('title');
     movieRef.once('value', function(snapshot){
         snapshot.forEach(function(item){
-            
             let newOrder = JSON.stringify(item.val());
-            console.log(newOrder);
+            let t = item.val().title;
+            let d = item.val().director;
+            let y = item.val().year;
+            let i = item.val().img;
             
+            createMovie(t, d, y, i);
         })
     })
 }
 
 
-
-
-
-
-
-
-
-
-
-
+//REMOVE MOVIES 
+    
+function removeMovie() {
+    ref.on('child_removed', function(snapshot){
+        let data = snapshot.val();
+        let key = snapshot.key;
+    })
+}
 
 
 
