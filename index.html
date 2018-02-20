@@ -27,16 +27,18 @@
 
 <body>
 	<div id="wrapper">
-     <h1>movie hub</h1>  
         <div class="sidenav">
+        <h1>movie hub</h1>
          <div id="add-movie">
-          <img src="https://i.imgur.com/0OaPAEg.png" id="me">
-         <h2>Hello, Sabrina!</h2>
-            <input id="title" type="text" name="title" placeholder="Movie title" required/>
-            <input id="director" type="text" name="director" placeholder="Director" required/>
-            <input id="year" type="text" name="year" placeholder="Year" required/>
-            <input id="image" type="text" name="image" placeholder="Image" required/>
-            <button id="add" type="submit">Add Movie</button>
+           <label>Title</label>
+            <input id="title" type="text" name="title" required/>
+            <label>Director</label>
+            <input id="director" type="text" name="director" required/>
+            <label>Year</label>
+            <input id="year" type="text" name="year" required/>
+            <label>Image</label>
+            <input id="image" type="text" name="image" required/>
+            <button id="add" type="submit"><i class="fas fa-plus-circle"></i></button>
          </div>
         </div>
        <div id="movie" class="movies"></div>
