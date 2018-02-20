@@ -75,6 +75,7 @@ label {
     font-size: 0.9em;
 }
 
+
 /* Add movie form */
 #add-movie {
     background-color: transparent;
@@ -94,6 +95,10 @@ label {
     width: 230px;
     font-size: 2em;
     outline:none;
+}
+
+#sort {
+    display: none;
 }
 
 #add:hover {

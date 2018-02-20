@@ -10,6 +10,7 @@ let director = document.getElementById('director');
 let year = document.getElementById('year');
 let img = document.getElementById('image');
 let add = document.getElementById('add');
+let sort = document.getElementById('sort');
 
 let movie = document.getElementById('movie');
 
@@ -17,12 +18,16 @@ let movie = document.getElementById('movie');
 add.addEventListener('click', function(event){
     addMovie();
 })
+    
+sort.addEventListener('click', function(event){
+    sortMovies();
+})
 
 getMovies();
 
 //GET MOVIE DATA
 function getMovies() {
-    ref.once('value', function(snapshot) {
+    ref.on('value', function(snapshot) {
         let movieData = snapshot.val();
         let keys = Object.keys(movieData);
         
@@ -40,23 +45,38 @@ function getMovies() {
 
 
 //FUNCTION FOR ADDING MOVIEDATA
+
+
+
 function addMovie() {
     let movieTitle = title.value;
     let movieDirector = director.value;
     let movieYear = year.value;
     let movieImg = img.value;
     
-    let fullMovie = {
+    if (movieTitle || movieDirector || movieDirector || movieImg == "") {
+        alert('Wrong!')
+    } else {
+        let fullMovie = {
         title: movieTitle,
         director: movieDirector,
         year: movieYear,
         img: movieImg
+        }
+        ref.push(fullMovie)
+        
+        clearField();
+        
     }
-    ref.push(fullMovie)
 }
     
+function clearField() {
+    
+}    
 
 //CREATE MOVIE BOX
+
+
 function createMovie(title, director, year, img) {
     let div = document.createElement('div');
     let image = document.createElement('img');
@@ -74,10 +94,17 @@ function createMovie(title, director, year, img) {
     div.appendChild(p);
     
     movie.appendChild(div);
-
 }
 
+//SORT MOVIES BY TITLE 
 
+function sortMovies() {
+    ref.orderByChild('title').on('value', function(snapshot){
+        snapshot.forEach (child => {
+            let obj = child.val();
+        })
+    })
+}
 
 
 
