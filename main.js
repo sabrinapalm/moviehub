@@ -104,9 +104,13 @@ function createMovie(title, director, year, img) {
 //SORT MOVIES BY TITLE 
 
 function sortMovies() {
-    ref.orderByChild('title').on('value', function(snapshot){
-        snapshot.forEach (child => {
-            let obj = child.val();
+    var movieRef = database.ref().child('movies').orderByChild('title');
+    movieRef.once('value', function(snapshot){
+        snapshot.forEach(function(item){
+            
+            let newOrder = JSON.stringify(item.val());
+            console.log(newOrder);
+            
         })
     })
 }
