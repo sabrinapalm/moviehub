@@ -147,18 +147,19 @@ label {
     outline:none;
 }
 
-#add:hover {
+#add:active {
     transform: scale(1.1);
 }
 
 #sort {
     display: ;
     background-color: transparent;
-    color: black;
+    color: darkgray;
     border: none;
 }
 #sort:hover {
-    color: darkgray;
+    transition: 0.3s;
+    color: white;
 }
 
 .removemovie {
@@ -243,8 +244,8 @@ label {
 /* Pagination links */
 .pagination {
     display: inline-block;
-    margin-top: 20px;
-    margin-left: 1380px;
+    margin-top: 30px;
+    margin-left: 1460px;
 }
 .pagination a {
     color: white;

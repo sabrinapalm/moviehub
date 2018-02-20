@@ -18,6 +18,7 @@ let movie = document.getElementById('movie');
 
 add.addEventListener('click', function(event){
     addMovie();
+    clearField();
 })
     
 sort.addEventListener('click', function(event){
@@ -30,7 +31,7 @@ remove.addEventListener('click', function(event){
 
 //GET MOVIE DATA
 function getMovies() {
-    ref.on('value', function(snapshot) {
+    ref.once('value', function(snapshot) {
         let movieData = snapshot.val();
         let keys = Object.keys(movieData);
         
@@ -50,16 +51,13 @@ getMovies();
 //FUNCTION FOR ADDING MOVIEDATA
 
 
-
 function addMovie() {
     let movieTitle = title.value;
     let movieDirector = director.value;
     let movieYear = year.value;
     let movieImg = img.value;
     
-    if (movieTitle || movieDirector || movieDirector || movieImg == "") {
-        alert('Wrong!')
-    } else {
+    if ( movieTitle || movieDirector || movieDirector || movieImg != "" ) {
         let fullMovie = {
         title: movieTitle,
         director: movieDirector,
@@ -67,14 +65,16 @@ function addMovie() {
         img: movieImg
         }
         ref.push(fullMovie)
-        
-        clearField();
-        
+    } else {
+        alert('Wrong!')
     }
 }
     
 function clearField() {
-    
+    title.value = '';
+    director.value = '';
+    year.value = '';
+    img.value = '';
 }    
 
 //CREATE MOVIE BOX
