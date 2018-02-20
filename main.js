@@ -83,15 +83,20 @@ function createMovie(title, director, year, img) {
     image.src = img;
     let h4 = document.createElement('h4');
     let p = document.createElement('p');
+    let removeBtn = document.createElement('button')
     div.className = 'movies';
     
     image.innerHTML = `<img src="${img}">`;
     h4.innerText = `${title}`;
     p.innerText = `${director}, ${year}`;
+    removeBtn.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+    
+    removeBtn.className = 'removemovie';
     
     div.appendChild(image);
     div.appendChild(h4);
     div.appendChild(p);
+    div.appendChild(removeBtn);
     
     movie.appendChild(div);
 }

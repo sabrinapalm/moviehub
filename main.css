@@ -20,6 +20,15 @@ h2 {
     margin-bottom: 40px;
 }
 
+h4 {
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+p {
+    margin: 0px auto;
+}
+
 .sidenav {
     height: 100%;
     width: 230px;
@@ -97,8 +106,25 @@ label {
     outline:none;
 }
 
+#add:hover {
+    transform: scale(1.1);
+}
+
 #sort {
     display: none;
+}
+
+.removemovie {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1em;
+    float: right;
+    margin-top: -20px;
+    cursor: pointer;
+}
+.removemovie:hover {
+    transform: scale(1.2);
 }
 
 #add:hover {
