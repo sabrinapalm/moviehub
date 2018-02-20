@@ -1,5 +1,5 @@
 body {
-    background-color: #61C0BF;
+    background-color: #111;
     /*background-image: url(./resources/bg.jpg);*/
     background-size: contain;
     color: #EEEEEE;
@@ -11,16 +11,25 @@ body {
 h1 {
     padding: 20px;;
     margin-left: 300px;
+    font-size: 3em;
+    letter-spacing: .6;
 }
 h2 {
     font-size: 1.2em;
+    margin-bottom: 40px;
 }
+
+header {
+    width: 1300px;
+    margin-left: 320px;
+}
+
 .sidenav {
     height: 100%;
     width: 260px;
     position: fixed;
     z-index: 1;
-    top: 20;
+    top: 60;
     left: 50;
     overflow-x: hidden;
     padding-top: 70px;
@@ -43,41 +52,50 @@ h2 {
     border: 10px double white;
     
 }
-#movies {
+
+/*SEARCHBAR*/
+
+
+
+
+
+/*movie divs*/
+
+#movie {
     display: flex;
     width: 1300px;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-left: 300px;
 }
-#movies div {
+.movies div {
     padding: 20px;
 }
-#movies:nth-child(0) {
+.movies:nth-child(0) {
     flex: 1; 
 }
-#movies:nth-child(1) {
+.movies:nth-child(1) {
     flex: 1; 
 }
-#movies:nth-child(2) {
+.movies:nth-child(2) {
     flex: 1; 
 }
-#movies:nth-child(3) {
+.movies:nth-child(3) {
     flex: 1; 
 }
-#movies:nth-child(4) {
+.movies:nth-child(4) {
     flex: 1; 
 }
-#movies:nth-child(5) {
+.movies:nth-child(5) {
     flex: 1; 
 }
-#movies:nth-child(6) {
+.movies:nth-child(6) {
     flex: 1; 
 }
-#movies:nth-child(7) {
+.movies:nth-child(7) {
     flex: 1; 
 }
-#movies img {
+.movies img {
     width: 280px;
     height: 400px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 30px 0 rgba(0, 0, 0, 0.7);
@@ -97,6 +115,19 @@ input[type=text]::placeholder {
     color: #FFF;
     opacity: 0.8;
 }
+textarea:focus, input:focus{
+    outline: none;
+}
+input:focus { color: white }
+
+input, select, textarea{
+    color: #FFF;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 
 /* Pagination links */
 .pagination {
