@@ -97,7 +97,7 @@ li a:hover, .dropdown:hover .dropbtn {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid white;
-    width: 260px;
+    width: 230px;
     margin-bottom: 15px;
     font-size: 1em;
     font-family: Questrial, sans-serif;
@@ -183,7 +183,7 @@ label {
 }
 #add:active {
     transform: translateY(4px);
-    outline:none;
+    outline: none;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -192,9 +192,7 @@ label {
     letter-spacing: 1px;
 }
 
-/*SEARCHBAR*/
-
-
+/*hover effect img*/
 
 
 
@@ -262,4 +260,4 @@ label {
 }
 
 /* Add a grey background color on mouse-over */
-.pagination a:hover:not(.active) {background-color: darkred;}
+.pagination a:hover:not(.active) {background-color: darkred;

@@ -15,6 +15,9 @@ let remove = document.getElementById('remove');
 
 let movie = document.getElementById('movie');
 
+window.addEventListener('load', function(event){
+    getMovies();
+})
 
 add.addEventListener('click', function(event){
     addMovie();
@@ -31,7 +34,7 @@ remove.addEventListener('click', function(event){
 
 //GET MOVIE DATA
 function getMovies() {
-    ref.once('value', function(snapshot) {
+    ref.on('value', function(snapshot) {
         let movieData = snapshot.val();
         let keys = Object.keys(movieData);
         
@@ -45,12 +48,8 @@ function getMovies() {
         }
     });
 }
-    
-getMovies();
 
 //FUNCTION FOR ADDING MOVIEDATA
-
-
 function addMovie() {
     let movieTitle = title.value;
     let movieDirector = director.value;
@@ -66,7 +65,7 @@ function addMovie() {
         }
         ref.push(fullMovie)
     } else {
-        alert('Wrong!')
+        alert('All fields must be filled out!')
     }
 }
     
@@ -109,7 +108,7 @@ function createMovie(title, director, year, img) {
 function sortMovies(title, director, year, img) {
     movie.innerHTML = '';
     var movieRef = database.ref().child('movies').orderByChild('title');
-    movieRef.once('value', function(snapshot){
+    movieRef.on('value', function(snapshot){
         snapshot.forEach(function(item){
             let newOrder = JSON.stringify(item.val());
             let t = item.val().title;
@@ -134,6 +133,8 @@ function removeMovie() {
 
 
 
+
+//PAGINATION
 
 
 
