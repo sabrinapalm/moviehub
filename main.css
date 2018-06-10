@@ -209,28 +209,28 @@ label {
     padding: 20px;
 }
 .movies:nth-child(0) {
-    flex: 1; 
+    flex: 1;
 }
 .movies:nth-child(1) {
-    flex: 1; 
+    flex: 1;
 }
 .movies:nth-child(2) {
-    flex: 1; 
+    flex: 1;
 }
 .movies:nth-child(3) {
-    flex: 1; 
+    flex: 1;
 }
 .movies:nth-child(4) {
-    flex: 1; 
+    flex: 1;
 }
 .movies:nth-child(5) {
-    flex: 1; 
+    flex: 1;
 }
 .movies:nth-child(6) {
-    flex: 1; 
+    flex: 1;
 }
 .movies:nth-child(7) {
-    flex: 1; 
+    flex: 1;
 }
 .movies img {
     width: 280px;
@@ -242,8 +242,8 @@ label {
 /* Pagination links */
 .pagination {
     display: inline-block;
-    margin-top: 30px;
-    margin-left: 1460px;
+    margin-left: 1560px;
+    margin-bottom: 100px;
 }
 .pagination a {
     color: white;
