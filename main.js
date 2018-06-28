@@ -30,21 +30,23 @@ sort.addEventListener('click', function(event){
     sortMovies();
 })
 
-remove.addEventListener('click', function(event){
-    removeMovie();
-})
+// remove.addEventListener('click', function(event){
+//     removeMovie();
+// })
 
 one.addEventListener('click', function(event){
-  getMovies()
+    getMovies()
 })
 
 two.addEventListener('click', function(event){
-  pagination2();
+    getMovies2();
 })
+
 
 //GET MOVIE DATA
 function getMovies() {
-    ref.on('value', function(snapshot) {
+  movie.innerHTML = '';
+  firebase.database().ref("/movies").limitToFirst(4).once('value', function(snapshot) {
         let movieData = snapshot.val();
         let movieList = Object.values(movieData);
 
@@ -54,10 +56,25 @@ function getMovies() {
           let year = movie.year;
           let img = movie.img;
           let key = movie.id;
-          console.log()
           createMovie(title, director, year, img, key);
         });
+    });
+}
 
+function getMovies2() {
+  movie.innerHTML = '';
+  firebase.database().ref("/movies").limitToLast(4).once('value', function(snapshot) {
+        let movieData = snapshot.val();
+        movieList = Object.values(movieData);
+
+        movieList.map(function(movie, index) {
+          let title = movie.title;
+          let director = movie.director;
+          let year = movie.year;
+          let img = movie.img;
+          let key = movie.id;
+          createMovie(title, director, year, img, key);
+        });
     });
 }
 
@@ -75,7 +92,7 @@ function createMovie(title, director, year, img, key) {
     image.innerHTML = `<img src="${img}">`;
     h4.innerText = `${title}`;
     p.innerText = `${director}, ${year}`;
-    removeBtn.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+    removeBtn.innerHTML = `Remove`;
     removeBtn.setAttribute("id", key)
 
     removeBtn.className = 'removemovie';
@@ -92,22 +109,25 @@ function createMovie(title, director, year, img, key) {
 document.addEventListener("click",function (event) {
     if(event.target.className == "removemovie"){
       var removeId = event.target.getAttribute("id");
+      console.log(removeId)
       removeMovie(removeId);
     }
   })
 
 removeMovie = (removeId) => {
-  console.log(removeId);
   const database = firebase.database();
   database.ref(`/movies/${removeId}`).remove();
+  console.log("Remove succeeded.")
+  let parent = event.target.parentNode;
+  parent.parentNode.removeChild(parent);
 }
 
 
 //SORT MOVIES BY TITLE
 function sortMovies(title, director, year, img) {
     movie.innerHTML = '';
-    var movieRef = database.ref().child('movies').orderByChild('title').limitToFirst(8);
-    movieRef.on('value', function(snapshot){
+    var movieRef = database.ref().child('movies').orderByChild('title').limitToFirst(4);
+    movieRef.once('value', function(snapshot){
         snapshot.forEach(function(item){
             let newOrder = JSON.stringify(item.val());
             let t = item.val().title;
@@ -133,7 +153,8 @@ function addMovie() {
         title: movieTitle,
         director: movieDirector,
         year: movieYear,
-        img: movieImg
+        img: movieImg,
+        id: firebase.database().ref().child('movies').push().key
         }
         ref.push(fullMovie)
     } else {

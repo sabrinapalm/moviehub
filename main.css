@@ -163,15 +163,17 @@ label {
 }
 
 .removemovie {
-    background-color: transparent;
+    background-color: maroon;
     border: none;
     color: white;
-    font-size: 1em;
-    float: right;
-    margin-top: -20px;
+    font-size: 0.8em;
+    margin-top: 10px;
     cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    outline: none;
 }
-.removemovie:hover {
+.removemovie:active {
     transform: scale(1.2);
 }
 
@@ -242,7 +244,7 @@ label {
 /* Pagination links */
 .pagination {
     display: inline-block;
-    margin-left: 1560px;
+    margin-left: 1590px;
     margin-bottom: 100px;
 }
 .pagination a {
