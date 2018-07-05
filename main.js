@@ -12,13 +12,19 @@ let img = document.getElementById('image');
 let add = document.getElementById('add');
 let sort = document.getElementById('sort');
 let remove = document.getElementById('remove');
-let one = document.getElementById('one');
-let two = document.getElementById('two');
-
+let page1 = document.getElementById('page1');
+let page2 = document.getElementById('page2');
+let page3 = document.getElementById('page3');
+let page4 = document.getElementById('page4');
+let page5 = document.getElementById('page5');
+let page6 = document.getElementById('page6');
 let movie = document.getElementById('movie');
+let pagination = document.getElementsByClassName('pagination')[0];
+
 
 window.addEventListener('load', function(event){
     getMovies();
+    listenToMovies();
 })
 
 add.addEventListener('click', function(event){
@@ -30,52 +36,149 @@ sort.addEventListener('click', function(event){
     sortMovies();
 })
 
-// remove.addEventListener('click', function(event){
-//     removeMovie();
-// })
-
-one.addEventListener('click', function(event){
+page1.addEventListener('click', function(event){
     getMovies()
-})
-
-two.addEventListener('click', function(event){
-    getMovies2();
 })
 
 
 //GET MOVIE DATA
 function getMovies() {
   movie.innerHTML = '';
-  firebase.database().ref("/movies").limitToFirst(4).once('value', function(snapshot) {
+  firebase.database().ref("/movies").once('value', function(snapshot) {
         let movieData = snapshot.val();
-        let movieList = Object.values(movieData);
-
-        movieList.map(function(movie, index) {
-          let title = movie.title;
-          let director = movie.director;
-          let year = movie.year;
-          let img = movie.img;
-          let key = movie.id;
-          createMovie(title, director, year, img, key);
-        });
+        if(!movieData) {
+          console.log('no movies')
+        } else {
+          let movieList = Object.values(movieData);
+          paginations(movieList);
+        }
     });
 }
 
-function getMovies2() {
-  movie.innerHTML = '';
-  firebase.database().ref("/movies").limitToLast(4).once('value', function(snapshot) {
-        let movieData = snapshot.val();
-        movieList = Object.values(movieData);
+function listenToMovies() {
+  firebase.database().ref("/movies").on('child_added', (snapshot) => {
+    let key = snapshot.key;
+    updateLastChildWithKey(key);
+    getMovies()
+  });
 
-        movieList.map(function(movie, index) {
+  firebase.database().ref("/movies").on('child_removed', (snapshot) => {
+    getMovies()
+  });
+}
+
+function updateLastChildWithKey(key) {
+  let id = key;
+  firebase.database().ref(`/movies/${key}`).update({id: key});
+}
+
+
+function paginations(movieList) {
+  let first = movieList.slice(0, 4),
+      second = movieList.slice(4, 8),
+      third = movieList.slice(8, 12),
+      forth = movieList.slice(12, 16),
+      fifth = movieList.slice(16, 20),
+      sixth = movieList.slice(20, 24)
+
+    if (first.length === 4 || first.length > 0) {
+      page1.className = 'show';
+      movie.innerHTML = '';
+      first.map(function(movie) {
+        let title = movie.title;
+        let director = movie.director;
+        let year = movie.year;
+        let img = movie.img;
+        let key = movie.id;
+        createMovie(title, director, year, img, key);
+      })
+    }
+
+    if (second.length === 4 || second.length > 0) {
+      page2.className = 'show';
+      page2.addEventListener('click', function(event){
+        movie.innerHTML = '';
+        second.map(function(movie) {
           let title = movie.title;
           let director = movie.director;
           let year = movie.year;
           let img = movie.img;
-          let key = movie.id;
+          let key = movie.key;
           createMovie(title, director, year, img, key);
-        });
-    });
+        })
+      })
+    } else {
+      page2.className = 'hide';
+    }
+
+    if (third.length === 4 || third.length > 0) {
+      page3.className = 'show';
+      page3.addEventListener('click', function(event){
+        movie.innerHTML = '';
+        third.map(function(movie) {
+          let title = movie.title;
+          let director = movie.director;
+          let year = movie.year;
+          let img = movie.img;
+          let key = movie.key;
+          createMovie(title, director, year, img, key);
+        })
+      })
+    } else {
+      page3.className = 'hide';
+    }
+
+    if (forth.length === 4 || forth.length > 0) {
+      page4.className = 'show';
+      page4.addEventListener('click', function(event){
+        movie.innerHTML = '';
+        forth.map(function(movie) {
+          let title = movie.title;
+          let director = movie.director;
+          let year = movie.year;
+          let img = movie.img;
+          let key = movie.key;
+          createMovie(title, director, year, img, key);
+        })
+      })
+    } else {
+      page4.className = 'hide';
+    }
+
+    if (fifth.length === 4 || fifth.length > 0) {
+      page5.className = 'show';
+      page5.addEventListener('click', function(event){
+        movie.innerHTML = '';
+        fifth.map(function(movie) {
+          let title = movie.title;
+          let director = movie.director;
+          let year = movie.year;
+          let img = movie.img;
+          let key = movie.key;
+          createMovie(title, director, year, img, key);
+        })
+      })
+    } else {
+      page5.className = 'hide';
+    }
+
+    if (sixth.length === 4 || sixth.length > 0) {
+      page6.className = 'show';
+      page6.addEventListener('click', function(event){
+        movie.innerHTML = '';
+        fifth.map(function(movie) {
+          let title = movie.title;
+          let director = movie.director;
+          let year = movie.year;
+          let img = movie.img;
+          let key = movie.key;
+          createMovie(title, director, year, img, key);
+        })
+      })
+    } else {
+      page6.className = 'hide';
+    }
+
 }
 
 
@@ -105,11 +208,10 @@ function createMovie(title, director, year, img, key) {
     movie.appendChild(div);
 }
 
-//Remove movie from database
+// Remove movie from database
 document.addEventListener("click",function (event) {
     if(event.target.className == "removemovie"){
       var removeId = event.target.getAttribute("id");
-      console.log(removeId)
       removeMovie(removeId);
     }
   })
@@ -117,7 +219,6 @@ document.addEventListener("click",function (event) {
 removeMovie = (removeId) => {
   const database = firebase.database();
   database.ref(`/movies/${removeId}`).remove();
-  console.log("Remove succeeded.")
   let parent = event.target.parentNode;
   parent.parentNode.removeChild(parent);
 }
@@ -126,7 +227,7 @@ removeMovie = (removeId) => {
 //SORT MOVIES BY TITLE
 function sortMovies(title, director, year, img) {
     movie.innerHTML = '';
-    var movieRef = database.ref().child('movies').orderByChild('title').limitToFirst(4);
+    var movieRef = database.ref().child('movies').orderByChild('title');
     movieRef.once('value', function(snapshot){
         snapshot.forEach(function(item){
             let newOrder = JSON.stringify(item.val());
@@ -154,7 +255,7 @@ function addMovie() {
         director: movieDirector,
         year: movieYear,
         img: movieImg,
-        id: firebase.database().ref().child('movies').push().key
+        id: ''
         }
         ref.push(fullMovie)
     } else {

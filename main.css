@@ -243,23 +243,19 @@ label {
 
 /* Pagination links */
 .pagination {
-    display: inline-block;
-    margin-left: 1590px;
-    margin-bottom: 100px;
-}
-.pagination a {
-    color: white;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
+  margin-left: 200px;
+  margin-top: 90px;
+  text-align: center;
 }
 
-/* Style the active/current link */
-.pagination a.active {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
+.show {
+  background-color: maroon;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
 }
 
-/* Add a grey background color on mouse-over */
-.pagination a:hover:not(.active) {background-color: darkred;
+.hide {
+  display: none;
+}
