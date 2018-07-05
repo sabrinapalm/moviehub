@@ -103,7 +103,7 @@ function paginations(movieList) {
           let director = movie.director;
           let year = movie.year;
           let img = movie.img;
-          let key = movie.key;
+          let key = movie.id;
           createMovie(title, director, year, img, key);
         })
       })
@@ -120,7 +120,7 @@ function paginations(movieList) {
           let director = movie.director;
           let year = movie.year;
           let img = movie.img;
-          let key = movie.key;
+          let key = movie.id;
           createMovie(title, director, year, img, key);
         })
       })
@@ -137,7 +137,7 @@ function paginations(movieList) {
           let director = movie.director;
           let year = movie.year;
           let img = movie.img;
-          let key = movie.key;
+          let key = movie.id;
           createMovie(title, director, year, img, key);
         })
       })
@@ -154,7 +154,7 @@ function paginations(movieList) {
           let director = movie.director;
           let year = movie.year;
           let img = movie.img;
-          let key = movie.key;
+          let key = movie.id;
           createMovie(title, director, year, img, key);
         })
       })
@@ -171,7 +171,7 @@ function paginations(movieList) {
           let director = movie.director;
           let year = movie.year;
           let img = movie.img;
-          let key = movie.key;
+          let key = movie.id;
           createMovie(title, director, year, img, key);
         })
       })
@@ -212,6 +212,7 @@ function createMovie(title, director, year, img, key) {
 document.addEventListener("click",function (event) {
     if(event.target.className == "removemovie"){
       var removeId = event.target.getAttribute("id");
+      console.log(removeId);
       removeMovie(removeId);
     }
   })
